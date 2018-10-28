@@ -4,7 +4,7 @@
  
  /* 返回 */
  .back{
-    height: 9%;
+    /*height: 9%;*/
     width: 5.3%;
     position: absolute;
     top: 5%;
@@ -15,7 +15,7 @@
     height: 74.3%;
     width: 41.9%;
     /*padding-top: 7.2%;*/
-    margin-top: 7.2%;
+    /*margin-top: 7.2%;*/
 }
 .swiper-slide{
     margin-top: 18%;
@@ -45,7 +45,7 @@
 }
 /* 小图 */
 .smallImg{
-    height: 24%;
+    /*height: 24%;*/
     width: 13.6%;
     position: absolute;
     top: 5%;
@@ -54,4 +54,14 @@
 .smallImg img{
     height: 100%;
     width: 100%;
+}
+#shade{
+    width: 100%;
+    height: 100%;
+    background-color: transparent;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 100;
+    display: none;
 }
