@@ -334,15 +334,8 @@ function pinTuGame( p_index ) {
             self = 0;
             $("#shade").css("display","block");
 
-            if( typeof( goofypapaGame ) != "undefined" && goofypapaGame ){
-                window.location.href = "goofypapa://playAudio," + imgSibling.value;
-            }else if( typeof( window.android ) != "undefined" ) {
-                window.android.initMusic(imgSibling.value);
-                window.android.startMusic();
-            }else{
-                // imgSibling.play();
-                console.log( imgSibling.value );
-            }
+            playAudio( imgSibling.value );
+
             var nextTime=Math.floor(imgSibling.duration* 1000)/1000;
             nextTime=nextTime*1000;
             setTimeout(function(){
