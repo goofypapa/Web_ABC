@@ -333,15 +333,14 @@ function pinTuGame( p_index ) {
         if (isOk) {
             self = 0;
             $("#shade").css("display","block");
-
             playAudio( imgSibling.value );
-
-            var nextTime=Math.floor(imgSibling.duration* 1000)/1000;
-            nextTime=nextTime*1000;
-            setTimeout(function(){
-                mySwiper.slideNext();
-                $("#shade").css("display","none");
-            },nextTime);
+            //
+            // var nextTime=Math.floor(imgSibling.duration* 1000)/1000;
+            // nextTime=nextTime*1000;
+            // setTimeout(function(){
+            //     mySwiper.slideNext();
+            //     $("#shade").css("display","none");
+            // },nextTime);
         }
     }
 }

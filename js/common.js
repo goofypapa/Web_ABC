@@ -16,7 +16,11 @@ document.getElementById('dv').style.width = docuWidth +'px';
 function playAudio( p_url )
 {
     if( typeof( goofypapaGame ) != "undefined" && goofypapaGame ){
-        window.location.href = "goofypapa://stopAllAudio;playAudio," + p_url;
+        // window.location.href = "goofypapa://stopAllAudio;playAudio," + p_url;
+        goofypapaStopAllAndPlayAudio( p_url, function(){
+            mySwiper.slideNext();
+            $("#shade").css("display","none");
+        } );
     }else if( typeof( window.android ) != "undefined" ) {
         window.android.initMusic(p_url);
         window.android.startMusic();
