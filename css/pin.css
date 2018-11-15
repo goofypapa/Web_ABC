@@ -60,12 +60,14 @@
     width: 100%;
 }
 #shade{
-    width: 100%;
+    width: 50%;
     height: 100%;
+    margin-left: 25%;
     background-color: transparent;
     position: absolute;
     top: 0;
     left: 0;
     z-index: 100;
     display: none;
+
 }
