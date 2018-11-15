@@ -120,7 +120,7 @@
 <div id="ren-shade"></div>
 <div id="ting-shade"></div>
 <div id="pin-shade"></div>
-<div id="blackShade"></div>
+<div id="blackShade" style="display: none;"></div>
     <div id="dv" style="background: url(image/1bj.png) no-repeat;background-size: 100% 100%;position: relative">
         <img src="image/left.png" class="left">
         <img src="image/right.png" class="right">
@@ -133,12 +133,16 @@
 <script src="js/common.js"></script>
 <script src="js/jquery.min.js"></script>
 <script>
+    if( window.history.length == 0 )
+    {
+        $("#blackShade").show();
+    }
+
     // 遮罩层的宽高
     var blackShadeSize=document.getElementById("blackShade");
     blackShadeSize.style.width = window.screen.availWidth+'px';
     blackShadeSize.style.height = window.screen.availHeight+'px';
     window.onload=function(){
-        $("#blackShade").fadeOut();
         // 适配
         var adaptationList = [".ren", ".ting", ".pin", ".left", ".right"];
         {
@@ -198,7 +202,10 @@
             }
         })
 
-    }
+        if( window.history.length == 0 ) {
+            $("#blackShade").fadeOut();
+        }
+    };
 
 </script>
 
