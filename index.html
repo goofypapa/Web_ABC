@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <!-- <meta http-equiv="X-UA-Compatible" content="ie=edge"> -->
     <title>英文字母ABC-首页</title>
     <link rel="stylesheet" href="css/common.css" type="text/css" />
     <style>
@@ -26,39 +26,34 @@
         }
 
         .ren {
-            height: 405px;
-            width: 467px;
+            height: 50%;
             position: absolute;
-            top: 275px;
-            left: 155px;
+            top: 30%;
+            left: 10%;
         }
 
         .ting {
-            height: 482px;
-            width: 550px;
+            height: 50%;
             position: absolute;
-            top: 513px;
-            left: 720px;
+            top: 50%;
+            left: 40%;
         }
 
         .pin {
-            height: 397px;
-            width: 396px;
+            height: 40%;
             position: absolute;
-            top: 306px;
-            /*left: 1327px;*/
-            right:200px;
+            top: 30%;
+            right: 5%;
         }
 
         .left {
-            height: 546px;
-            width: 525px;
+            height: 40%;
             position: absolute;
-            top: 152px;
-            left: 849px;
+            top: 20%;
+            left: 20%;
             transform-origin: right top;
             animation: mymove2 5s infinite linear;
-        }
+        } 
 
         @keyframes mymove2 {
             0% {
@@ -83,11 +78,10 @@
         }
 
         .right {
-            height: 369px;
-            width: 436px;
+            height: 40%;
             position: absolute;
-            top: 333px;
-            left: 615px;
+            top: 20%;
+            left: 60%;
             transform-origin: 0 0;
             animation: mymove 5s infinite linear;
         }
@@ -116,64 +110,44 @@
     </style>
 </head>
 
-<body>
+<body style="background: url(image/1bj.jpg) no-repeat;background-size: 100% 100%;" >
 <div id="ren-shade"></div>
 <div id="ting-shade"></div>
 <div id="pin-shade"></div>
 <div id="blackShade" style="display: none;"></div>
-    <div id="dv" style="background: url(image/1bj.png) no-repeat;background-size: 100% 100%;position: relative">
-        <img src="image/left.png" class="left">
-        <img src="image/right.png" class="right">
-        <img src="image/backIndex.png" class="back">
-        <img src="image/1ren.png" class="ren">
-        <img src="image/1ting.png" class="ting">
-        <img src="image/1pin.png" class="pin">
-    </div>
+<div id="dv" >
+    <img src="image/left.png" class="left">
+    <img src="image/right.png" class="right">
+    <img src="image/backIndex.png" class="back">
+    <img src="image/1ren.png" class="ren">
+    <img src="image/1ting.png" class="ting">
+    <img src="image/1pin.png" class="pin">
+</div>
 </body>
 <script src="js/common.js"></script>
 <script src="js/jquery.min.js"></script>
 <script>
-    if( window.history.length == 0 )
+
+    var loadImgs = ["image/1bj.jpg","image/2bj.jpg","image/3bj.jpg","image/04bj.jpg"];
+
+    for( var item in loadImgs )
     {
+        var img = document.createElement("img");
+        img.src = loadImgs[item];
+    }
+
+    if( window.history.length == 1 )
+    {
+        // 遮罩层的宽高
+        var blackShadeSize=document.getElementById("blackShade");
+        blackShadeSize.style.width = window.screen.availWidth+'px';
+        blackShadeSize.style.height = window.screen.availHeight+'px';
         $("#blackShade").show();
     }
 
-    // 遮罩层的宽高
-    var blackShadeSize=document.getElementById("blackShade");
-    blackShadeSize.style.width = window.screen.availWidth+'px';
-    blackShadeSize.style.height = window.screen.availHeight+'px';
     window.onload=function(){
         // 适配
-        var adaptationList = [".ren", ".ting", ".pin", ".left", ".right"];
-        {
-            var docuWidth = document.documentElement.clientWidth;  //可见区域宽度
-            var docuHeight = document.documentElement.clientHeight; //可见区域高度
-            console.log(docuHeight,docuWidth)
-            var sourceWidth = 1920;
-            var sourceHeight = 1080;
-            var bili = Math.min(docuWidth / sourceWidth, docuHeight / sourceHeight);
-            function adaptation(obj) {
-                var height = parseInt($(obj).css("height")) * bili;
-                var width = parseInt($(obj).css("width")) * bili;
-                var top = parseInt($(obj).css("top")) * bili;
-                var left = parseInt($(obj).css("left")) * bili;
-                $(obj).css({
-                    'height': height + "px",
-                    'width': width + "px",
-                    'top': top + "px",
-                    'left': left + "px"
-                });
-            }
-            for (var item in adaptationList) {
-                adaptation($(adaptationList[item]));
-            }
-        }
-        $(".pin").css("left","");
-        $(".pin").css("right",parseInt($(".pin").css("right")) * bili);
-
-        // $('.ren').click(function () {
-        //     window.location.href = 'renNew.html';
-        // });
+    
         $('.ren').on('touchend',function(e){
             window.location.href = 'renNew.html';
             e.preventDefault();
@@ -202,7 +176,7 @@
             }
         })
 
-        if( window.history.length == 0 ) {
+        if( window.history.length == 1 ) {
             $("#blackShade").fadeOut();
         }
     };
