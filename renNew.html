@@ -208,26 +208,18 @@
                 // window.android.log(labaSrc);
                 var arr=[];
 
-                //
+                // continuousAudio("image/caicai.mp3");
 
-                // $("#caicai")[0].play();
-                // 音频连续播放方法
-                continuousAudio("image/caicai.mp3");
 
                 // 手机播放音频
-                if( typeof( goofypapaGame ) != "undefined" && goofypapaGame ){
-                    // window.location.href = "goofypapa://playAudio," + $("#caicai")[0].src;
-                    // alert( "-------->" + $("#caicai")[0].src )
-                    goofypapaStopAllAndPlayAudio( "http://www.dadpat.com/app/ABC/image/caicai.mp3", function(){
-                    } );
-                }else{
-                    window.android.initMusic( "http://www.dadpat.com/app/ABC/image/caicai.mp3");
-                    window.android.startMusic();
-                }
+                playAudio( "http://www.dadpat.com/app/ABC/image/caicai.mp3" );
+
+                
                 console.log($("#laba").next("audio")[0].src);
                 setTimeout(function(){
                     $("#forbid").css("display","none");
                 },4000);
+
                 setTimeout(function(){
                     // $("#laba").next("audio")[0].play();
                     // 手机播放音频
@@ -259,6 +251,20 @@
                 !arr.length && myAudio.removeEventListener('ended',playEndedHandler,false);//只有一个元素时解除绑定
             }
         }
+    }
+
+    function playAudio( p_audio, p_callback )
+    {
+        if( typeof( goofypapaGame ) != "undefined" && goofypapaGame )
+        {
+            goofypapaStopAllAndPlayAudio( p_audio, p_callback )
+        }else if( typeof( android ) != "undefined" ){
+            window.android.initMusic( p_audio );
+            window.android.startMusic();
+        }else{
+            console.log( "-----------> play: " + p_audio );
+        }
+            
     }
 </script>
 </html>
