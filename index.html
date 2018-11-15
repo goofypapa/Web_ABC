@@ -167,15 +167,27 @@
         $(".pin").css("left","");
         $(".pin").css("right",parseInt($(".pin").css("right")) * bili);
 
-        $('.ren').click(function () {
+        // $('.ren').click(function () {
+        //     window.location.href = 'renNew.html';
+        // });
+        $('.ren').on('touchend',function(e){
             window.location.href = 'renNew.html';
-        })
-        $('.ting').click(function () {
+            e.preventDefault();
+        });
+        // $('.ting').click(function () {
+        //     window.location.href = 'ting.html';
+        // });
+        $('.ting').on('touchend',function(e){
             window.location.href = 'ting.html';
-        })
-        $('.pin').click(function () {
+            e.preventDefault();
+        });
+        // $('.pin').click(function () {
+        //     window.location.href = 'pin.html';
+        // });
+        $('.pin').on('touchend',function(e){
             window.location.href = 'pin.html';
-        })
+            e.preventDefault();
+        });
 
         //调用Android退出app
         $('.back').click(function () {
