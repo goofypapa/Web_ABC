@@ -104,8 +104,16 @@ var swiper1 = new Swiper('#swiper-container1', {
         slideChangeTransitionStart:function(){
 
             // 播放当前页面音频文件
-            playAudio( $('.swiper-slide-active input')[0].value );
-            
+            // playAudio( $('.swiper-slide-active input')[0].value );
+            if( typeof( goofypapaGame ) != "undefined" && goofypapaGame ){
+                goofypapaStopAllAndPlayAudio( $('.swiper-slide-active input')[0].value, function(){
+                } );
+            }else if( typeof( window.android ) != "undefined" ) {
+                window.android.initMusic($('.swiper-slide-active input')[0].value);
+                window.android.startMusic();
+            }else{
+                console.log( p_url );
+            }
             // 获取当前图片的transform值
             var transForm = $('#swiper-container1 .swiper-scrollbar-drag')[0].style.transform;
             // 获取当前图片的transform的X值
@@ -122,22 +130,11 @@ var swiper1 = new Swiper('#swiper-container1', {
             $(".xiaLa img").attr('src','image/2xiala.png'); 
             //隐藏卡片列表
             $('.kpList').css('display','none');
-
-
-            // if(audio){
-            //     audio.pause();
-            //     audio.load();
-            // }
-
         },
         slideChangeTransitionEnd: function () {
-            // $('.swiper-slide-prev audio')[0].pause();
-            // $('.swiper-slide-prev audio')[0].currentTime=0;
-            // $('.swiper-slide-next audio')[0].pause();
-            // $('.swiper-slide-next audio')[0].currentTime=0;
         },
         click: function(){
-            // console.log(swiper1.activeIndex);
+
         },
     }
 
@@ -145,5 +142,13 @@ var swiper1 = new Swiper('#swiper-container1', {
 
 var audio = '';
 $('.live').click(function(){
-    playAudio( $('.swiper-slide-active input')[0].value );
+    if( typeof( goofypapaGame ) != "undefined" && goofypapaGame ){
+        goofypapaStopAllAndPlayAudio( $('.swiper-slide-active input')[0].value, function(){
+        } );
+    }else if( typeof( window.android ) != "undefined" ) {
+        window.android.initMusic($('.swiper-slide-active input')[0].value);
+        window.android.startMusic();
+    }else{
+        console.log( p_url );
+    }
 })

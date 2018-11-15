@@ -75,26 +75,6 @@
     <img src="image/3laba.png" id="laba">
     <audio src=""></audio>
     <ul id="imgList">
-        <!--<li>-->
-        <!--<img class="pic" src="http://www.dadpat.com/app/ABC/ren/a/03ren_a_pic3_apple.png" alt="">-->
-        <!--<audio src=""></audio>-->
-        <!--<img class="dui" src="image/3dui.png" alt="">-->
-        <!--</li>-->
-        <!--<li>-->
-        <!--<img class="pic" src="http://www.dadpat.com/app/ABC/ren/a/03ren_a_pic3_apple.png" alt="">-->
-        <!--<audio src=""></audio>-->
-        <!--<img class="dui" src="image/3dui.png" alt="">-->
-        <!--</li>-->
-        <!--<li>-->
-        <!--<img class="pic" src="http://www.dadpat.com/app/ABC/ren/a/03ren_a_pic3_apple.png" alt="">-->
-        <!--<audio src="image/3.mp3"></audio>-->
-        <!--<img class="dui" src="image/3dui.png" alt="">-->
-        <!--</li>-->
-        <!--<li>-->
-        <!--<img class="pic" src="http://www.dadpat.com/app/ABC/ren/a/03ren_a_pic3_apple.png" alt="">-->
-        <!--<audio src=""></audio>-->
-        <!--<img class="dui" src="image/3dui.png" alt="">-->
-        <!--</li>-->
     </ul>
 </div>
 <div id="forbid"></div>
@@ -104,8 +84,10 @@
 <div id="audioBox"></div>
 </body>
 <script src="js/jquery.min.js"></script>
+<script src="js/goofypapaApi.js"></script>
 <script>
     window.goofypapaInit = function(){
+    // window.onload = function(){
 
         //点击返回首页
         $('.back').click(function(){
@@ -225,7 +207,7 @@
                 });
                 // window.android.log(labaSrc);
                 var arr=[];
-                
+
                 //
 
                 // $("#caicai")[0].play();
@@ -235,10 +217,11 @@
                 // 手机播放音频
                 if( typeof( goofypapaGame ) != "undefined" && goofypapaGame ){
                     // window.location.href = "goofypapa://playAudio," + $("#caicai")[0].src;
-
                     // alert( "-------->" + $("#caicai")[0].src )
+                    goofypapaStopAllAndPlayAudio( "http://www.dadpat.com/app/ABC/image/caicai.mp3", function(){
+                    } );
                 }else{
-                    window.android.initMusic( $("#caicai")[0].src);
+                    window.android.initMusic( "http://www.dadpat.com/app/ABC/image/caicai.mp3");
                     window.android.startMusic();
                 }
                 console.log($("#laba").next("audio")[0].src);
