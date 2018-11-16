@@ -249,13 +249,13 @@ function pinTuGame( p_index ) {
             this.style["z-index"] = 1000;
             var sizeHalf = { width: $(this).width() * 0.5, height: $(this).height() * 0.5 };
             var position = { x: e.targetTouches[0].pageX - sizeHalf.width, y: e.targetTouches[0].pageY - sizeHalf.height };
-            if (position.x > windowSize.width - sizeHalf.width) {
+            if (position.x > windowSize.width - sizeHalf.width/0.5) {
                 position.x = windowSize.width - sizeHalf.width/0.5;
             }
             if (position.x < 0) {
                 position.x = 0;
             }
-            if (position.y > windowSize.height - sizeHalf.height) {
+            if (position.y > windowSize.height - sizeHalf.height/0.5) {
                 position.y = windowSize.height - sizeHalf.height/0.5;
             }
             if (position.y < 0) {
