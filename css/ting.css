@@ -133,4 +133,6 @@
     position: absolute;
     left: 45.5%;
     bottom: 3.7%;
-}
+} .swiper-container{
+      -webkit-tap-highlight-color:transparent;
+  }
