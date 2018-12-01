@@ -170,11 +170,13 @@ for(var item2 in fileListPin){
 
 //点击返回首页
 $('.back').click(function(){
-                 
-                 if(typeof( goofypapaGame ) != "undefined" && goofypapaGame ){
-                 window.location.href='goofypapa://back';
-                 return;
+                 if(typeof(index) !== "undefined"){
+                     if(typeof( goofypapaGame ) != "undefined" && goofypapaGame ){
+                     window.location.href='goofypapa://back';
+                     return;
+                     }
                  }
+                
                  //android ws
                  if( typeof(goofyPapa) !== "undefined" ){
                  goofyPapa.back();
