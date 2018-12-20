@@ -172,18 +172,25 @@ for(var item2 in fileListPin){
 $('.back').click(function(){
                  if(typeof(index) !== "undefined"){
                      if(typeof( goofypapaGame ) != "undefined" && goofypapaGame ){
-                     window.location.href='goofypapa://back';
+                         window.location.href='goofypapa://back';
                      return;
+
                      }
                  }
-                
+                 // 针对人物关系图
+                 if(typeof(index)=="undefined") {
+                     if (typeof(goofypapaGame) != "undefined" && goofypapaGame) {
+                         window.location.href = 'goofypapa://back';
+                         return;
+                     }
+                 }
                  //android ws
                  if( typeof(goofyPapa) !== "undefined" ){
-                 goofyPapa.back();
+                     goofyPapa.back();
                  return;
                  }
                  if(history.length) {
-                 history.go(-1);
+                     history.go(-1);
                  return;
                  }
                  

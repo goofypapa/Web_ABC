@@ -86,8 +86,8 @@
 <script src="js/jquery.min.js"></script>
 <script src="js/goofypapaApi.js"></script>
 <script>
-    window.goofypapaInit = function(){
-    // window.onload = function(){
+    // window.goofypapaInit = function(){
+    window.onload = function(){
 
         //点击返回首页
         $('.back').click(function(){
@@ -225,9 +225,12 @@
                     // 手机播放音频
                     if( typeof( goofypapaGame ) != "undefined" && goofypapaGame ){
                         window.location.href = "goofypapa://playAudio," + labaSrc;
-                    }else{
+                    }else if(typeof( window.android ) != "undefined"){
                         window.android.initMusic(labaSrc);
                         window.android.startMusic();
+
+                    }else{
+                        console.log(labaSrc);
                     }
 
                 },3000);
