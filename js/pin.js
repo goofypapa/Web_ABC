@@ -9,7 +9,7 @@ var template_content = "<img src=\"$urlPin$\">\
 
 // 音频文件
 var audioAll = [];
-console.log( fileListPin.big.length);
+// console.log( fileListPin.big.length);
 for(var index in audioList){
     audioAll = audioAll.concat(audioList[index])
 }
@@ -20,8 +20,8 @@ for (var item in fileListPin) {
     var pinList = fileListPin[item];
     for (var i = 0; i < pinList.length; i++) {
         html += template_box;
-        var imgUrl = 'http://www.dadpat.com/app/ABC/pin/' + item + '/' + pinList[i];
-        var audioUrl = 'http://www.dadpat.com/app/ABC/audio/'+audioAll[i];
+        var imgUrl = 'https://www.goofypapa.com/app/ABC/pin/' + item + '/' + pinList[i];
+        var audioUrl = 'https://www.goofypapa.com/app/ABC/audio/'+audioAll[i];
         smallImgHtml += "<div style=\"display:none;\"></div>";
         dataList.push( [imgUrl, audioUrl] );
     }
@@ -133,7 +133,7 @@ lazyLoad();
 // 拼图游戏
 var imgSibling = '';
 function pinTuGame( p_index ) {
-
+    // 删除pinpu CLASS 里的九个div
     $('.pinTu div').remove();
 
     $('.smallImg img').attr('src', dataList[ p_index ][0]);

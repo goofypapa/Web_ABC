@@ -157,55 +157,18 @@ for( var item in fileListTing ){  //fileList文件列表
         // console.log(str)
         // console.log(vice_audioList[i])
         var className = str.substring(0,str.length-4);  //截取文件名获取类名
-        letterList[i] = $($('#template').html().replace('$url$','http://www.dadpat.com/app/ABC/ting/'+item+'/'+str).replace('$class$',className).replace('$audio$','http://www.dadpat.com/app/ABC/audio/'+vice_audioList[i]).replace('$content$',listP[i]));
+        letterList[i] = $($('#template').html().replace('$url$','/app/ABC/ting/'+item+'/'+str).replace('$class$',className).replace('$audio$','https://www.goofypapa.com/app/ABC/audio/'+vice_audioList[i]).replace('$content$',listP[i]));
         $('#swiper-container1 .swiper-wrapper').append(letterList[i])
     }
 }
 for(var item2 in fileListPin){
     var pinList = fileListPin[item2];
     for(var j=0;j<pinList.length;j++){
-        $('#swiper-container2 .swiper-wrapper').append($($('#template2').html().replace('$url2$','http://www.dadpat.com/app/ABC/pin/big/'+pinList[j])))
+        $('#swiper-container2 .swiper-wrapper').append($($('#template2').html().replace('$url2$','https://www.goofypapa.com/app/ABC/pin/big/'+pinList[j])))
     }
 }
 
-//点击返回首页
-$('.back').click(function(){
-                 if(typeof(index) !== "undefined"){
-                     if(typeof( goofypapaGame ) != "undefined" && goofypapaGame ){
-                         window.location.href='goofypapa://back';
-                     return;
 
-                     }
-                 }
-                 // 针对人物关系图
-                 if(typeof(index)=="undefined") {
-                     if (typeof(goofypapaGame) != "undefined" && goofypapaGame) {
-                         window.location.href = 'goofypapa://back';
-                         return;
-                     }
-                 }
-                 //android ws
-                 if( typeof(goofyPapa) !== "undefined" ){
-                     goofyPapa.back();
-                 return;
-                 }
-                 if(history.length) {
-                     history.go(-1);
-                 return;
-                 }
-                 
-                 //    if(index){
-                 //        console.log("111");
-                 //        if( typeof( goofypapaGame ) != "undefined" && goofypapaGame ){
-                 //            window.location.href='goofypapa://back';
-                 //        }else{
-                 //            window.android.exitApp()
-                 //        }
-                 //    }else{
-                 //        window.location.href = 'index.html';
-                 //    }
-                 
-                 })
 
 //点击让卡片显示、隐藏
 $('.xiaLa img').click(function(oEvent){
@@ -333,3 +296,41 @@ $('.live').click(function(){
                  console.log( p_url );
                  }
                  })
+//点击返回首页
+$('.back').click(function(){
+    if(typeof(index) !== "undefined"){
+        if(typeof( goofypapaGame ) != "undefined" && goofypapaGame ){
+            window.location.href='goofypapa://back';
+            return;
+
+        }
+    }
+    // 针对人物关系图
+    if(typeof(index)=="undefined") {
+        if (typeof(goofypapaGame) != "undefined" && goofypapaGame) {
+            window.location.href = 'goofypapa://back';
+            return;
+        }
+    }
+    //android ws
+    if( typeof(goofyPapa) !== "undefined" ){
+        goofyPapa.back();
+        return;
+    }
+    if(history.length) {
+        history.go(-1);
+        return;
+    }
+
+    //    if(index){
+    //        console.log("111");
+    //        if( typeof( goofypapaGame ) != "undefined" && goofypapaGame ){
+    //            window.location.href='goofypapa://back';
+    //        }else{
+    //            window.android.exitApp()
+    //        }
+    //    }else{
+    //        window.location.href = 'index.html';
+    //    }
+
+})
