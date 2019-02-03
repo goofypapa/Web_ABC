@@ -157,7 +157,7 @@ for( var item in fileListTing ){  //fileList文件列表
         // console.log(str)
         // console.log(vice_audioList[i])
         var className = str.substring(0,str.length-4);  //截取文件名获取类名
-        letterList[i] = $($('#template').html().replace('$url$','/app/ABC/ting/'+item+'/'+str).replace('$class$',className).replace('$audio$','https://www.goofypapa.com/app/ABC/audio/'+vice_audioList[i]).replace('$content$',listP[i]));
+        letterList[i] = $($('#template').html().replace('$url$','https://www.goofypapa.com/app/ABC/ting/'+item+'/'+str).replace('$class$',className).replace('$audio$','https://www.goofypapa.com/app/ABC/audio/'+vice_audioList[i]).replace('$content$',listP[i]));
         $('#swiper-container1 .swiper-wrapper').append(letterList[i])
     }
 }
