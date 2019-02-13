@@ -16,8 +16,8 @@
 .swiper-button-prev{
     position: absolute;
     bottom: -14.5%;
-    width: 11%;
-    height: 21%;
+    width: 50px;
+    height: 50px;
     margin-top: -29px;
     z-index: 10;
     cursor: pointer;
