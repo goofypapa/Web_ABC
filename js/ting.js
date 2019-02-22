@@ -15,7 +15,7 @@ function GetQueryString(name){
 //定义变量接收url参数
 var cardId=GetQueryString("resourceId");
 // var cardId="f24711e88dc5d770922b59bd92dc498c";
-
+// alert(cardId);
 // 获取卡片id
 var cardIdAll=["f23511e88dc5d770922b59bd170d834e",
                "f23511e88dc5d770922b59bd2e10c75f",
@@ -48,6 +48,7 @@ var cardIdAll=["f23511e88dc5d770922b59bd170d834e",
                "f23a11e88dc5d770922b59bdd69df12e",
                "f23811e88dc5d770922b59bdbe08fb69",
                "f23811e88dc5d770922b59bddafb1b9a",
+               // "f44911e88c4a29aa6256c37008f194d7",
                // 重复grandpa
                "f23911e88dc5d770922b59bd392343ad",
                "f23811e88dc5d770922b59bded6bb82b",
@@ -202,8 +203,15 @@ window.onload=function(){
         swiper1.slideTo(index,1);
         swiper2.slideTo(index,1);
     }else{
-        swiper1.slideTo(0,1);
-        swiper2.slideTo(0,1);
+        // alert(cardId)
+        if(cardId=="f44911e88c4a29aa6256c37008f194d7"){
+            swiper1.slideTo(31,1);
+            swiper2.slideTo(31,1);
+        }else{
+            swiper1.slideTo(0,1);
+            swiper2.slideTo(0,1);
+        }
+
     }
     
 }
